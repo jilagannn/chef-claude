@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: Inter, sans-serif;
+    background-color: #FAFAF8;
 }
 
 /**
@@ -17,19 +18,16 @@ header {
     display: flex;
     justify-content: center;
     height: 111px;
-}
-
-.title-container {
-    display: flex;
     align-items: center;
+    gap: 15px;
+    background-color: #FFFFFF;
 }
 
-.title-container > img{
+header > img {
     width: 43px;
 }
 
-.title-container > span {
+header > span {
     font-weight: 400;
     font-size: 32px;
-    margin-left: .9rem;
 }
