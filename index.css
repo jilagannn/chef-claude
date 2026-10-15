@@ -31,3 +31,37 @@ header > span {
     font-weight: 400;
     font-size: 32px;
 }
+
+main {
+    padding: 2.5rem 2.7rem 1rem;
+}
+
+.add-ingredient-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-ingredient-form > input {
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
+    padding: 9px 17px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05); /* from scrimba */
+    flex-grow: 1;
+    min-width: 150px;
+    max-width: 400px;
+}
+
+.add-ingredient-form > button {
+    width: 183px;
+    height: 38px;
+    border-radius: 6px;
+    border-color: #141413;
+    padding: 9px 17px;
+    background-color: #141413;
+    color: #FAFAF8;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+}

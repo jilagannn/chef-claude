@@ -1,4 +1,5 @@
 import { Header } from "./components/Header"
+import { Main } from "./components/Main"
 
 /**
  * Challenge: Build the Header component in a separate file
@@ -9,6 +10,7 @@ export const App = () => {
     return (
         <>
             <Header />
+            <Main />
         </>
     )
 }
