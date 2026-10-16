@@ -21,10 +21,6 @@ export const Main = () => {
         event.preventDefault()
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient") as string
-        addIngredient(newIngredient);
-    }
-    
-    const addIngredient = (newIngredient: string) => {
         setIngredients(
             prevIngredients => [
                 ...prevIngredients,
