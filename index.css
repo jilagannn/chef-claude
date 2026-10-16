@@ -114,3 +114,14 @@ ul.ingredients-list > li {
     line-height: 20px;
     color: #6B7280;
 }
+
+.suggested-recipe-container {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+    margin-bottom: 8px;
+}
