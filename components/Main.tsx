@@ -17,9 +17,7 @@ export const Main = () => {
         )
     })
 
-    const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+    const addIngredient = (formData: FormData) => {
         const newIngredient = formData.get("ingredient") as string
         setIngredients(
             prevIngredients => [
@@ -31,7 +29,7 @@ export const Main = () => {
 
     return (
         <main>
-            <form className="add-ingredient-form" onSubmit={handleSubmit}>
+            <form action={addIngredient} className="add-ingredient-form" >
                 <input 
                     placeholder="e.g. chicken breast"
                     type="text" 
