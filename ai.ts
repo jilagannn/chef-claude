@@ -27,7 +27,7 @@ export async function getRecipeFromChefClaude(ingredientsArr: string[]) {
 
     const msg = await anthropic.messages.create({
         model: "claude-haiku-5-5",
-        max_tokens: 1024,
+        max_tokens: 4000,
         system: SYSTEM_PROMPT,
         messages: [
             { role: "user", content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!` },
