@@ -1,32 +1,29 @@
 import { useState } from "react";
 import { ClaudeRecipe } from "./ClaudeRecipe"
 import { IngredientsList } from "./IngredientsList"
+import { getRecipeFromChefClaude } from "../ai.ts"
 
 export const Main = () => {
 
-    const [ingredients, setIngredients] = useState<string[]>(["all the main spices", "pasta", "ground beef", "tomato paste"]);
-    const [recipeShown, setRecipeShown] = useState(false);
     /**
-     * Challenge: clean up our code!
-     * Let's make a couple new components to make things a
-     * little cleaner. (Notice: I'm not suggesting what we
-     * have now is bad or wrong. I'm mostly finding an excuse
-     * to get in some hands-on practice 🙂)
+     * Challenge: Get a recipe from the AI!
      * 
-     * 1. Move the entire recipe <section> into its own
-     *    ClaudeRecipe component
-     * 2. Move the list of ingredients <section> into its
-     *    own IngredientsList component.
+     * This will be a bit harder of a challenge that will require you
+     * to think critically and synthesize the skills you've been
+     * learning and practicing up to this point.
      * 
-     * While you're considering how to structure things, consider
-     * where state is, think about if it makes sense or not to
-     * move it somewhere else, how you'll communicate between
-     * the parent/child components, etc.
+     * Using either the `getRecipeFromChefClaude` function or the 
+     * `getRecipeFromMistral` function, make it so that when the user
+     * clicks "Get a recipe", the text response from the AI is displayed
+     * in the <ClaudeRecipe> component.
      * 
-     * The app should function as it currently does when you're
-     * done, so there will likely be some extra work to be done
-     * beyond what I've listed above.
+     * For now, just have it render the raw markdown that the AI returns,
+     * don't worry about making it look nice yet. (We're going to use a
+     * package that will render the markdown for us soon.)
      */
+
+    const [ingredients, setIngredients] = useState<string[]>([]);
+    const [recipe, setRecipe] = useState("")
 
     const addIngredient = (formData: FormData) => {
         const newIngredient = formData.get("ingredient") as string
@@ -38,9 +35,12 @@ export const Main = () => {
         )
     }
 
-    const toggleRecipe = () => {
-        setRecipeShown( prevRecipe => !prevRecipe)
+    const getRecipe = async() => {
+        const recipeSuggestion = await getRecipeFromChefClaude(ingredients)
+        console.log(recipeSuggestion)
+        setRecipe(recipeSuggestion)
     }
+
 
     return (
         <main>
@@ -53,8 +53,14 @@ export const Main = () => {
                 />
                 <button>Add ingredient</button>
             </form>
-            {ingredients.length > 0 && <IngredientsList ingredients={ingredients} toggleRecipe={toggleRecipe} />}
-            {recipeShown && <ClaudeRecipe />}
+            {ingredients.length > 0 && 
+                <IngredientsList 
+                    ingredients={ingredients}
+                    getRecipe={getRecipe}/>}
+            {recipe && 
+                <ClaudeRecipe 
+                    recipe={recipe}
+                />}
             
         </main>
     )
