@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown"
+
 export const ClaudeRecipe = (
     {
         recipe
@@ -7,7 +9,7 @@ export const ClaudeRecipe = (
 ) => {
     return(
         <section>
-            {recipe}
+            <ReactMarkdown children={recipe}/>
         </section>
     )
 }
