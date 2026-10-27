@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ClaudeRecipe } from "./ClaudeRecipe"
-import { IngredientsList } from "./IngredientsList"
-import { getRecipeFromChefClaude } from "../ai.ts"
+import { ClaudeRecipe } from "./ClaudeRecipe.tsx"
+import { IngredientsList } from "./IngredientsList.tsx"
+import { getRecipeFromChefClaude } from "../../ai.ts"
 
 export const Main = () => {
 
